@@ -16,6 +16,7 @@ def one_way(str1, str2):
         return False
 
     str_dict = {}
+    letter_count = 0
 
     # Add Str1 strings and Count to Dict
     for letter in list(str1):
@@ -35,10 +36,17 @@ def one_way(str1, str2):
     for (k,v) in str_dict.items():
         if v > 1 or v < -1:
             return False
-        else:
-            return True
+        elif v == 1 or v == -1:
+            letter_count += 1
+    
+    if letter_count > 1: 
+        return False
+
+    return True
 
 
 print(one_way('ravi','ivar'))
 print(one_way('ravi','ivari'))
 print(one_way('ravi','ivariv'))
+
+print(one_way('pale','bake'))
